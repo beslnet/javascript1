@@ -112,3 +112,92 @@ function cajero(){
 	console.log("Sobraron: "+ (parseInt(Math.trunc(cifra5)*10) + parseInt(Math.trunc(cifra6))) +" Pesos");
 
 }
+
+/****************** Ejercicio 4: Adivinar Password **********************************/
+
+function adivinar_password(){
+	var password = prompt("Ingrese la password que debe adivinar");
+	password_correcta = "foobar";
+
+	while (password != password_correcta) {
+    console.log("no has adivinado aún!");
+    var password = prompt("Ingrese nuevamente la password que debe adivinar");
+	}
+	console.log("Adivinaste!!!");
+}
+
+/****************** Ejercicio 5: Sumatoria de números **********************************/
+
+function suma_numeros(){
+	var suma = parseInt(prompt("Ingrese el número donde quieres que llegue la sumatoria"));
+	var numero = 0;
+	var i = 1;
+	if(isNaN(suma)){
+		console.log("No ingresaste un numero");
+	}
+	else{
+	while(i <= suma){
+		i += 1;
+		numero += i;
+
+	}
+	console.log(numero);
+	}
+	
+}
+
+/****************** Ejercicio 6: Sumatoria de números pares usando while *********************/
+
+function suma_numerospares_while(){
+	var suma = parseInt(prompt("Ingrese el número donde quieres que llegue la sumatoria"));
+	var numero = 0;
+	var i = 1;
+	if(isNaN(suma)){
+		console.log("No ingresaste un numero");
+	}
+	else{
+	while(i <= suma){
+		if(i % 2 == 0){
+			console.log(i);
+			numero += i;
+		}
+		i += 1;
+	}
+	console.log(numero);
+	}
+	
+}
+
+/****************** Ejercicio 7: Sumatoria de números pares usando for ahora ************/
+
+function suma_numerospares_for(){
+	var suma = parseInt(prompt("Ingrese el número donde quieres que llegue la sumatoria"));
+	var numero = 0;
+
+	if(isNaN(suma)){
+		console.log("No ingresaste un numero");
+	}
+	else{
+	for(var i = 1; i <= suma; i++){
+		if(i % 2 == 0){
+			console.log(i);
+			numero += i;
+		}
+	}
+	console.log(numero);
+}
+}
+
+/****************** Ejercicio 8: Sumatoria de números pares usando for ahora ************/
+function binarios(){
+	var total = 0;
+for(var i = 1; i <= 99; i++){
+	if(i % 2 == 0){
+		total += "0";
+	}
+	else{
+	total += "1";
+	}
+}
+console.log(total+2);
+}
