@@ -201,3 +201,66 @@ for(var i = 1; i <= 99; i++){
 }
 console.log(total+2);
 }
+
+/****************** Ejercicio 9: Invertir un string ************/
+
+
+function inversa() {
+  var cadena = prompt("Ingrese el texto número a invertir");
+  var n = cadena.length;
+  var cadenaInvertida = "";
+ 
+  while (n >= 0) {
+    cadenaInvertida = cadenaInvertida + cadena.charAt(n);
+    n--;
+  }
+	console.log(cadenaInvertida);
+}
+
+/****************** Ejercicio 10: Pirámide de asteriscos ************/
+
+function piramide_asteriscos(){
+	var n = prompt("Ingrese un número para definir la altura del arbolito");
+	var asteriscos = '';
+    var j = '';
+    for(var i = 0; i < n; i = i+1){ 
+    	j = i + 1;
+        for(j; j < n; j++)
+        	{ 
+        		asteriscos +=" ";
+        	}
+        for(j = 0; j < 2*i+1; j++)
+        	{ 
+        		asteriscos += "*";
+        	}
+        asteriscos += "\n";
+    } 
+console.log(asteriscos);
+}
+
+
+/****************** Ejercicio 11: Adivinar número - 3 intentos ************/
+
+function adivinar_numero(){
+var numero = parseInt(prompt("Ingrese el número a adivinar"));
+var secreto = 4;
+var i = 0;
+
+while(numero != secreto){
+	i += 1;
+	//if(numero == secreto){
+		
+	//}
+	if(i == 3){
+		console.log("Excediste el número de intentos");
+		break;
+	}
+	var numero = parseInt(prompt("Ingrese el número a adivinar"));
+	if(numero == secreto){
+			break;
+		}
+}
+	if(numero == secreto){
+	console.log("adivinaste!");
+	}
+}
