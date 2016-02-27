@@ -248,9 +248,7 @@ var i = 0;
 
 while(numero != secreto){
 	i += 1;
-	//if(numero == secreto){
-		
-	//}
+
 	if(i == 3){
 		console.log("Excediste el número de intentos");
 		break;
@@ -264,3 +262,393 @@ while(numero != secreto){
 	console.log("adivinaste!");
 	}
 }
+
+
+/****************** Ejercicio 12: Funciones sobre funciones ************/
+
+function multiplicaPorTres(n){
+	return n*3;
+}
+function aplicaDosVeces(n, miFuncion){
+	return	miFuncion(miFuncion(n));
+}
+
+//var resultado = aplicaDosVeces(6, multiplicaPorTres);
+//console.log(resultado);
+
+
+/****************** Ejercicio 13:  funciones anónimas************/
+
+var myVar;
+
+function myFunction() {
+    myVar = setInterval(alertFunc, 3000);
+}
+
+function alertFunc() {
+    alert("Hello!");
+}
+
+//myFunction();
+
+/****************** Ejercicio 14:  arreglos ************/
+
+/****************** Ejercicio 16: Objetos literales  ************/
+function objetos(){
+var auto = new Object();
+auto.puertas = 5;
+auto.marca = "Audi";
+auto.color = "Azul";
+
+auto.metodo1 = function(){
+	console.log(auto.marca);
+}
+
+console.log(auto.color);
+}
+
+/****************** Ejercicio 17: Objetos literales 2  ************/
+var perro = {
+	juegue: function(animal){
+		animal.entretenido = true
+		animal.felicidad()
+	}
+}
+
+var gato = {
+	felicidad: function(){
+		console.log('miauuuuuu!!! :3')
+	},
+	entretenido:false
+}
+
+//perro.juegue(gato)
+//console.log(gato)
+
+/****************** Ejercicio 18: Objetos literales 3  ************/
+var pedro ={
+	nombre: 'Pedro',
+	edad: 28,
+	saludar: function(persona){
+		console.log(
+			this.nombre +
+			' Saluda a ' + 
+			persona.nombre)
+		persona.saludado = true
+	}, 
+	saludado: false
+};
+
+var juan ={
+	nombre: 'Juan',
+	edad: 24,
+	saludar: function(persona){
+		console.log(
+			this.nombre +
+			' Saluda a ' + 
+			persona.nombre)
+		persona.saludado = true
+	}, 
+	saludado: false
+};
+
+//pedro.saludar(juan);
+//console.log(juan);
+
+/****************** Ejercicio 19: Objetos literales 4  ************/
+var juan ={
+	nombre: 'Juan',
+};
+
+var registro_civil ={
+	cambiar_nombre: function(persona, nombre){
+		console.log("El registro civil cambió el nombre de "+ persona.nombre + " a " + nombre)
+		persona.nombre = nombre
+	}, 
+};
+
+//registro_civil.cambiar_nombre(juan, "Benjamín");
+//console.log(juan.nombre);
+
+/****************** Ejercicio 20: Clases 1 ************/
+function Persona(nombre) {
+	//propiedad
+	this.nombre = nombre
+	this.saludado = false
+	//metodo
+	this.saludar = function(persona){
+		console.log(this.persona + ' a saludado a '+ persona.nombre)
+		persona.saludado = true
+	}
+}
+
+/*var persona1 = new Persona()
+var persona2 = new Persona()
+persona2.nombre = 'Juan'
+var persona3 = new Persona()
+persona3.nombre = 'Diego'
+
+var persona1 = new Persona('Pedro');
+var persona2 = new Persona('Juan');
+var persona3 = new Persona('Diego');
+
+console.log(persona1, persona2, persona3) */
+
+/****************** Ejercicio 21: Clases 2 ************/
+
+function Mascota(especie, nombre, edad, onomatopeya){
+	this.especia = especie
+	this.nombre = nombre
+	this.edad = edad
+	this.onomatopeya = onomatopeya
+	this.acariciada = 0
+	this.serAcariciada = function(){
+		this.acariciada++
+		console.log("mascota acariciada"+this.acariciada)
+	}
+}
+
+function Persona(nombre, edad) {
+	//propiedad
+	this.nombre = nombre
+	this.edad = edad
+	//metodo
+	this.acariciar = function(mascota){
+		mascota.serAcariciada()
+		return this
+	}
+}
+
+var persona1 = new Persona('Benjamín', '35');
+var mascota1 = new Mascota('Perro', 'Kofka', 10, 'Guau !' );
+
+//persona1 .acariciar(mascota1) .acariciar(mascota1)
+
+//var x = new Persona("Javier", "35")
+
+//x.acariciar(mascota1)	
+//x.acariciar(mascota1)	
+
+//console.log(mascota1)
+
+/****************** Ejercicio 22: Clases 2 ************/
+
+
+var deseos2 = [];
+var veces = 1;
+var deseos = [];
+var arreglo = [];
+var cantidad = "";	
+
+
+//var cantidad = parseInt(prompt("Ingrese su cantidad de deseos"));
+
+
+while(veces <= cantidad){
+	var deseos = prompt("Ingrese su deseo "+veces);
+	arreglo.push(deseos);
+	veces +=1;
+}
+
+var largo = arreglo.length;
+largo.length;
+for(var x = largo-1; x >= 0 ; x--){
+	deseos2.push(arreglo[x]);
+}
+//console.log(deseos2);
+
+/****************** Ejercicio 23:  ************/
+
+function caja_registradora(monto_inicial){
+	this.monto_total = parseInt(monto_inicial);
+
+	this.ingresarDinero = function(monto){
+		this.monto_total = parseInt(monto) + this.monto_total;
+	}
+	this.retirarDinero = function(monto){
+		monto_tmp = this.monto_total - parseInt(monto);
+		if(monto_tmp < 0){
+			console.log("No tiene fondos suficientes");
+		}
+		else{
+			this.monto_total = this.monto_total - monto;
+		}
+	}
+}
+
+var movimiento = new caja_registradora("50000");
+
+/****************** Ejercicio 24:  ************/
+function SalaClases(){
+	this.capacidad = parseInt(10);
+	this.vacantes = parseInt(10);
+
+	this.GestionAula = function(edad){
+		this.edadAlumno = parseInt(edad);
+
+		if(edad < 18){
+			console.log("la persona es muy joven para entrar al aula");
+		}
+		else{
+			if(this.vacantes > 0){
+			this.vacantes -= 1;
+			console.log("Alumno ingresado con éxito al aula");
+			}
+			else{
+				console.log("No hay más capacidad en esta aula");
+			}
+		}
+	}
+
+}
+
+function Alumno(edad){
+	this.edad = parseInt(edad);
+
+	this.ingresarAlumno = function(salaclases, edad){
+		//var edad = prompt("Ingrese la edad del alumno");
+		salaclases.GestionAula(edad);
+		//return this	
+	}
+
+
+}
+
+/****************** Ejercicio 24:  ************/
+function Perrera(){
+	this.capacidad = parseInt(15);
+	this.PerrosAtrapados = parseInt(0);
+
+	this.IngresarPerros = function(perro, tipoAnimal){
+		//var tipoAnimal = prompt("Ingrese el tipo de animal");
+		validacion = perro.validaAnimal(tipoAnimal);
+		if(validacion === true){
+			if(this.capacidad > 0){
+					console.log("Animal ingresado con éxito en la perrera");
+					this.capacidad -= 1;
+					this.PerrosAtrapados +=1;
+				}
+			else{
+				console.log("No hay más capacidad en la perrera");
+			}
+		}
+		else{
+			console.log("Sólo se aceptan perros en esta perrera");
+		}
+	}
+
+	this.AdoptaPerros = function(nombreClase, cantidadPerros, cantidadAdoptar){
+		if(parseInt(this.PerrosAtrapados) > 0){
+			if(this.PerrosAtrapados === 1){
+				if(cantidadAdoptar > 1){
+					console.log("Ĺo lamentamos, sólo nos queda un perrito disponible");
+					}
+				else{
+						nombreClase.AnimalAdoptado(cantidadAdoptar);
+						this.PerrosAtrapados = this.PerrosAtrapados - cantidadAdoptar;
+						this.capacidad = this.capacidad + cantidadAdoptar;
+						console.log("Felicitaciones!, has adoptado "+cantidadAdoptar+" Perro");					
+					}
+
+			}			
+			else {
+					if(cantidadAdoptar < 3)
+						{
+							if(cantidadAdoptar === 0)
+								{
+								console.log("Puedes adoptar desde 1 perro hacia arriba!, animo! :)");
+								}
+							else
+								{
+								if(cantidadAdoptar === 1 && cantidadPerros === 1)
+									{
+									nombreClase.AnimalAdoptado(cantidadAdoptar);
+									this.PerrosAtrapados = this.PerrosAtrapados - cantidadAdoptar;
+									this.capacidad = this.capacidad + cantidadAdoptar;
+									console.log("Felicitaciones!, has adoptado "+cantidadAdoptar+" Perro");				
+									}
+
+								else if(cantidadAdoptar === 1 && cantidadPerros == 0)
+									{
+									nombreClase.AnimalAdoptado(cantidadAdoptar);
+									this.PerrosAtrapados = this.PerrosAtrapados - cantidadAdoptar;
+									this.capacidad = this.capacidad + cantidadAdoptar;
+									console.log("Felicitaciones!, has adoptado "+cantidadAdoptar+" Perro");				
+									}
+								
+								else if(cantidadAdoptar === 2 && cantidadPerros === 0)
+									{
+									nombreClase.AnimalAdoptado(cantidadAdoptar);
+									this.PerrosAtrapados = this.PerrosAtrapados - cantidadAdoptar;
+									this.capacidad = this.capacidad + cantidadAdoptar;
+									console.log("Felicitaciones!, has adoptado "+cantidadAdoptar+" Perro");					
+									}
+								else
+									{
+									if(cantidadPerros === 1)
+										{
+										console.log("Sólo puedes tener dos perros, y ya tienes 1, no puedes adoptar más de 1 :)");
+										}
+									else
+										{
+										console.log("No puedes tener más de dos perritos y ya tienes los dos! :)");
+										}	
+									}
+								}	
+						}	
+					else
+						{
+						console.log("No puedes adoptar más de 2 perros");
+						}
+					
+				}	
+		}
+		else{
+			console.log("No tenemos esa cantidad de perritos disponibles para ser adoptados en este momento!, lo lamentamos");
+			}
+		
+	}
+}
+
+function Perro(){
+	this.tipoAnimalPermitido = "perro";
+	this.validaAnimal = function(tipo_animal){
+		if(tipo_animal === this.tipoAnimalPermitido){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+}
+
+function Humano(cantidad){
+	this.cantidadPerros = parseInt(cantidad);
+	this.AdoptarAnimal = function(perrera, cuantosAdoptar){
+		perrera.AdoptaPerros(this, this.cantidadPerros, cuantosAdoptar);
+	}
+	this.AnimalAdoptado = function(cantidad){
+		this.cantidadPerros = this.cantidadPerros + cantidad;
+	}
+
+	this.devolverAnimal = function(nombreClase1, nombreClase2, tipoAnimal){
+		if(this.cantidadPerros > 0)
+			{
+			nombreClase1.IngresarPerros(nombreClase2, tipoAnimal);
+			validacion = nombreClase2.validaAnimal(tipoAnimal);
+			if(validacion === true)
+				{
+				this.cantidadPerros = this.cantidadPerros - 1;	
+				console.log("Devolución de perrito efectuada corréctamente :-(");
+				}
+			}
+		else
+			{
+			console.log("No tienes perros, que quieres devolver? :O");
+			}
+	}
+
+}
+
+/****************** Ejercicio 25:  ************/
